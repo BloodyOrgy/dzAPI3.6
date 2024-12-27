@@ -11,9 +11,9 @@ public class PostmanEchosTest {
                 .baseUri("https://postman-echo.com")
                 .contentType("text/plain; charset=UTF-8")
                 .body("Welcome")
-                .when()
+                .when().log().all()
                 .post("/post")
-                .then()
+                .then().log().all()
                 .statusCode(200)
                 .body("data", org.hamcrest.Matchers.equalTo("Welcome"));        ;
     }
